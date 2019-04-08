@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex Panels</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <style>
+        *,
+        *:after,
+        *:before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            box-sizing: inherit;
+            font-family: 'Amatic SC', cursiv;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+
+            
+        }
+        .box {
+            width: calc(100% / 5 );
+            color: white;
+            background-color: #6B0F9C;;
+            box-shadow: inset 0px 0px 5px  rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+            transition: all .5s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+            filter: grayscale(50%);
+        }
+
+        .box p {
+            font-size: 5rem;
+            flex: 1;
+            text-shadow:0 0 4px rgba(0, 0, 0, 0.72),
+             0 0 14px rgba(0, 0, 0, 0.45);
+            
+        }
+
+        .box-1{
+            background-image: url(https://source.unsplash.com/user/giovannipoveda51);
+            background-size: cover;
+            flex:  1;
+        }
+        .box-2{
+            background-image: url(https://source.unsplash.com/user/dvnil);
+            background-size: cover;
+            flex: 1;
+        }
+        .box-3{
+            background-image: url(https://source.unsplash.com/user/romashilin);
+            background-size: cover;
+            flex: 1;
+        }
+        .box-4{
+            background-image: url(https://source.unsplash.com/user/jeremybishop);
+            background-size: cover;
+            flex: 1;
+        }
+        .box-5{
+            background-image: url(https://source.unsplash.com/user/thevantagepoint718);
+            background-size: cover;
+            flex: 1;
+        }
+
+        .addition-top
+        {
+            transform: translateY(-300px);
+            transition: transform .6s cubic-bezier(0.61,-0.19, 0.7,-0.11) .2s;
+        }
+        .addition-bottom 
+        {
+            transform: translateY(300px);
+            transition: transform .6s cubic-bezier(0.61,-0.19, 0.7,-0.11) .2s;
+        }
+
+        .addition-top-see .addition-top,
+        .addition-top-see .addition-bottom 
+        {
+            transform: translateY(0px);
+        }
+
+        .grow {
+            flex-grow: 3;
+        }
+        .middle {
+            font-size: inherit;
+            transition: all .4s ease-in-out;
+        }
+        .addition-top-see  .middle {
+            font-size: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box-1">
+            <p class="addition-top">Hey</p>
+            <p class="middle">Let's</p>
+            <p class="addition-bottom">Dance</p>
+        </div>
+        <div class="box box-2">
+            <p class="addition-top">Give</p>
+            <p class="middle">Take</p>
+            <p class="addition-bottom">Recieve</p>
+        </div>
+        <div class="box box-3">
+            <p class="addition-top">Experience</p>
+            <p class="middle">it</p>
+            <p class="addition-bottom">Today</p>
+        </div>
+        <div class="box box-4">
+            <p class="addition-top">Give</p>
+            <p class="middle">All</p>
+            <p class="addition-bottom">You can</p>
+        </div>
+        <div class="box box-5">
+            <p class="addition-top">Life</p>
+            <p class="middle">in</p>
+            <p class="addition-bottom">Motion</p>
+        </div>
+    </div>
+    <script>
+        const selectedP = Array.from(document.querySelectorAll('.box'));
+
+
+        function open()
+        {
+            this.classList.toggle('addition-top-see')
+            this.classList.toggle('grow')
+        };
+        selectedP.forEach(p => p.addEventListener('click', open))
+
+
+    </script>
+</body>
+</html>
